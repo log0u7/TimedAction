@@ -1,10 +1,10 @@
 /*
 ||
 || @file 	TimedAction.cpp
-|| @version	2.0
+|| @version	2.1
 || @author	Alexander Brevig
 || @contact	alexanderbrevig@gmail.com
-|| @updated by	Glumgad https://www.instructables.com/member/Glumgad/
+|| @updated by Glumgad, log0u7
 ||
 || @description
 || | Provide an easy way of triggering functions at a set interval
@@ -31,9 +31,11 @@
 #ifndef TIMEDACTION_H
 #define TIMEDACTION_H
 
-#include "arduino.h"
-
-#define NO_PREDELAY 0
+#if (ARDUINO >= 100)
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
 
 class TimedAction {
   
@@ -58,15 +60,3 @@ class TimedAction {
 
 #endif
 
-/*
-|| @changelog
-|| | 2.0 2017-12-28 - Glumgad : Updated for Arduino ver 1.6.** Updated for Arduino IDE ver 1.6.** compatibility 
-|| | 1.6 2010-10-08 - Alexander Brevig : Changed datatype of interval from unsigned int to unsigned long
-|| | 1.5 2009-10-25 - Alexander Brevig : Added setInterval , requested by: Boris Neumann
-|| | 1.4 2009-05-06 - Alexander Brevig : Added reset()
-|| | 1.3 2009-04-16 - Alexander Brevig : Added disable() and enable(), requested by: http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?action=viewprofile;username=ryno
-|| | 1.2 2009-04-13 - Alexander Brevig : Added a constructor
-|| | 1.1 2009-04-08 - Alexander Brevig : Added an example that demonstrates three arduino examples at once
-|| | 1.0 2009-03-23 - Alexander Brevig : Initial Release
-|| #
-*/
