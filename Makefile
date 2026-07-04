@@ -22,6 +22,7 @@ test: compile link
 lint:
 	@which cppcheck >/dev/null 2>&1 && \
 		cppcheck --enable=warning,performance,style --error-exitcode=1 \
+			--language=c++ \
 			--suppress=missingIncludeSystem \
 			--suppress=unmatchedSuppression \
 			$(SRC) $(HEADERS) || \
