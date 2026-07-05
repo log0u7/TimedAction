@@ -17,7 +17,7 @@
 typedef uint8_t byte;
 typedef bool boolean;
 
-static unsigned long _mock_millis_counter = 0;
+extern unsigned long _mock_millis_counter;
 
 static inline unsigned long millis() {
     return _mock_millis_counter;
